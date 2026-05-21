@@ -2,7 +2,7 @@ const fs = require('fs');
 
 // 1. Ozoe君の設定情報
 const CLIENT_ID = '248217';
-const CLIENT_SECRET = 'd589345c90c6c6881d575ee8a2a9025c4a6f8d228';
+const CLIENT_SECRET = 'd589345c90c6c6881d575ee8a2a9025c4a6f8d22';
 
 // ★さっき取得した引換券（code）をここに入れる！
 let INITIAL_CODE = '567c977a59b3ec37dc896c9e6f76c0f8d0feb460'; 
