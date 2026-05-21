@@ -5,7 +5,7 @@ const CLIENT_ID = '248217';
 const CLIENT_SECRET = 'd589345c90c6c6881d575ee8a2a9025c4a6f8d228';
 
 // ★さっき取得した引換券（code）をここに入れる！
-let INITIAL_CODE = '6afb03a58d6298265bc166e704e8617e54e3c1d2'; 
+let INITIAL_CODE = '567c977a59b3ec37dc896c9e6f76c0f8d0feb460'; 
 
 const TOKEN_FILE = 'token.json';
 
