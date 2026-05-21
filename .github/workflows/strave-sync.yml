@@ -1,0 +1,33 @@
+name: Strava Data Sync
+
+on:
+  schedule:
+    # 1時間に1回自動で動かす設定（UTC時間で毎時0分）
+    - cron: '0 * * * *'
+  workflow_dispatch: # ボタンを押して手動でいつでも動かせるようにする設定
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # GitHubが自分自身にファイルを書き込む許可
+
+    steps:
+    - name: 倉庫のコードを読み込む
+      uses: actions/checkout@v4
+
+    - name: Node.jsの環境を作る
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: プログラムを実行してJSONを作る
+      run: node server.js
+
+    - name: できたdata.jsonを倉庫に保存する
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Update Strava data" && git push)
