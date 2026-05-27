@@ -1,28 +1,35 @@
 name: Strava Data Sync
 
 on:
-  workflow_dispatch: # 手動で動かすためのボタン
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 倉庫のコードをコピー
-      uses: actions/checkout@v4
+      - name: 倉庫のコードをコピー
+        uses: actions/checkout@v4
 
-    - name: Node.jsの準備
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
+      - name: Node.jsの準備
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-    - name: データを取得するプログラムを実行
-      run: node server.js
+      - name: データを取得するプログラムを実行
+        run: node server.js
+        env:
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
 
-    - name: 変更された本物のデータを倉庫に保存する★これが必要やった！
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add data.json token.json || true
-        git commit -m "Update Strava data" || true
-        git push origin main || true
+      - name: 変更されたデータを倉庫に保存
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data.json
+          git commit -m "Update Strava data" || true
+          git push origin main || true
