@@ -1,17 +1,76 @@
 const fs = require('fs');
 
-async function saveStravaData() {
-    console.log("JSON作成中...");
+const CLIENT_ID = process.env.STRAVA_CLIENT_ID;
+const CLIENT_SECRET = process.env.STRAVA_CLIENT_SECRET;
+const REFRESH_TOKEN = process.env.STRAVA_REFRESH_TOKEN;
 
-    const mockData = [
-        { "date": "2026-05-18", "distance": "12.5km", "type": "Run", "pace": "4:15/km" },
-        { "date": "2026-05-20", "distance": "8.0km", "type": "Run", "pace": "4:00/km" },
-        { "date": "2026-05-21", "distance": "15.0km", "type": "Run", "pace": "4:30/km" }
-    ];
+async function fetchStravaData() {
+  console.log("Stravaアクセストークン取得中...");
 
-    fs.writeFileSync('data.json', JSON.stringify(mockData, null, 2));
+  const tokenRes = await fetch("https://www.strava.com/oauth/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      client_id: CLIENT_ID,
+      client_secret: CLIENT_SECRET,
+      refresh_token: REFRESH_TOKEN,
+      grant_type: "refresh_token"
+    })
+  });
 
-    console.log("成功！");
+  if (!tokenRes.ok) {
+    const errorText = await tokenRes.text();
+    throw new Error("アクセストークン取得失敗: " + errorText);
+  }
+
+  const tokenData = await tokenRes.json();
+  const accessToken = tokenData.access_token;
+
+  console.log("Stravaアクティビティ取得中...");
+
+  const activitiesRes = await fetch(
+    "https://www.strava.com/api/v3/athlete/activities?per_page=30",
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    }
+  );
+
+  if (!activitiesRes.ok) {
+    const errorText = await activitiesRes.text();
+    throw new Error("アクティビティ取得失敗: " + errorText);
+  }
+
+  const activities = await activitiesRes.json();
+
+  const data = activities.map(activity => {
+    const distanceKm = activity.distance / 1000;
+    const movingMinutes = activity.moving_time / 60;
+    const paceMinPerKm = distanceKm > 0 ? movingMinutes / distanceKm : 0;
+
+    const paceMin = Math.floor(paceMinPerKm);
+    const paceSec = Math.round((paceMinPerKm - paceMin) * 60)
+      .toString()
+      .padStart(2, '0');
+
+    return {
+      id: activity.id,
+      date: activity.start_date_local.slice(0, 10),
+      name: activity.name,
+      type: activity.type,
+      distance: `${distanceKm.toFixed(2)}km`,
+      time_sec: activity.moving_time,
+      pace: `${paceMin}:${paceSec}/km`
+    };
+  });
+
+  fs.writeFileSync('data.json', JSON.stringify(data, null, 2), 'utf-8');
+
+  console.log("成功！Stravaデータをdata.jsonに保存しました。");
 }
 
-saveStravaData();
+fetchStravaData().catch(error => {
+  console.error(error.message);
+  process.exit(1);
+});
