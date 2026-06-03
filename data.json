@@ -1,5 +1,14 @@
 [
   {
+    "id": 18766208454,
+    "date": "2026-06-03",
+    "name": "Afternoon Run",
+    "type": "Run",
+    "distance": "8.01km",
+    "time_sec": 2180,
+    "pace": "4:32/km"
+  },
+  {
     "id": 18740180435,
     "date": "2026-06-01",
     "name": "Evening Run",
@@ -259,14 +268,5 @@
     "distance": "3.77km",
     "time_sec": 1163,
     "pace": "5:09/km"
-  },
-  {
-    "id": 18462207871,
-    "date": "2026-05-11",
-    "name": "夕方のランニング",
-    "type": "Run",
-    "distance": "0.46km",
-    "time_sec": 85,
-    "pace": "3:03/km"
   }
 ]
