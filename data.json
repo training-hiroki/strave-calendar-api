@@ -1,5 +1,14 @@
 [
   {
+    "id": 18778913101,
+    "date": "2026-06-04",
+    "name": "Lunch Run",
+    "type": "Run",
+    "distance": "8.18km",
+    "time_sec": 2354,
+    "pace": "4:48/km"
+  },
+  {
     "id": 18766208454,
     "date": "2026-06-03",
     "name": "Afternoon Run",
@@ -259,14 +268,5 @@
     "distance": "8.01km",
     "time_sec": 2346,
     "pace": "4:53/km"
-  },
-  {
-    "id": 18483531823,
-    "date": "2026-05-13",
-    "name": "朝のランニング",
-    "type": "Run",
-    "distance": "3.77km",
-    "time_sec": 1163,
-    "pace": "5:09/km"
   }
 ]
