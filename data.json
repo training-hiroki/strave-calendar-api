@@ -1,5 +1,41 @@
 [
   {
+    "id": 18832752935,
+    "date": "2026-06-08",
+    "name": "Afternoon Run",
+    "type": "Run",
+    "distance": "0.12km",
+    "time_sec": 17,
+    "pace": "2:25/km"
+  },
+  {
+    "id": 18832731775,
+    "date": "2026-06-08",
+    "name": "Afternoon Run",
+    "type": "Run",
+    "distance": "2.01km",
+    "time_sec": 623,
+    "pace": "5:10/km"
+  },
+  {
+    "id": 18832608146,
+    "date": "2026-06-08",
+    "name": "Afternoon Run",
+    "type": "Run",
+    "distance": "0.15km",
+    "time_sec": 22,
+    "pace": "2:23/km"
+  },
+  {
+    "id": 18832604544,
+    "date": "2026-06-08",
+    "name": "Afternoon Run",
+    "type": "Run",
+    "distance": "1.00km",
+    "time_sec": 191,
+    "pace": "3:11/km"
+  },
+  {
     "id": 18832363554,
     "date": "2026-06-08",
     "name": "午後のランニング",
@@ -232,41 +268,5 @@
     "distance": "1.02km",
     "time_sec": 278,
     "pace": "4:33/km"
-  },
-  {
-    "id": 18542413321,
-    "date": "2026-05-17",
-    "name": "夕方のランニング",
-    "type": "Run",
-    "distance": "5.91km",
-    "time_sec": 2358,
-    "pace": "6:39/km"
-  },
-  {
-    "id": 18530898539,
-    "date": "2026-05-16",
-    "name": "夜のランニング",
-    "type": "Run",
-    "distance": "0.36km",
-    "time_sec": 149,
-    "pace": "6:52/km"
-  },
-  {
-    "id": 18530796796,
-    "date": "2026-05-16",
-    "name": "夜のランニング",
-    "type": "Run",
-    "distance": "6.17km",
-    "time_sec": 1894,
-    "pace": "5:07/km"
-  },
-  {
-    "id": 18514665158,
-    "date": "2026-05-15",
-    "name": "夕方のランニング",
-    "type": "Run",
-    "distance": "2.27km",
-    "time_sec": 537,
-    "pace": "3:57/km"
   }
 ]
