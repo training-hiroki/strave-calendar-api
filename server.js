@@ -54,20 +54,41 @@ async function fetchStravaData() {
       .toString()
       .padStart(2, '0');
 
+    // 🏃 種別を日本語に分かりやすく変換
+    let typeJa = activity.type;
+    if (activity.type === "Run") typeJa = "ランニング";
+    if (activity.type === "Walk") typeJa = "ウォーキング";
+
+    // 💓 平均心拍数からトレーニング強度を自動判定
+    // Ozoe君の心拍ゾーンに合わせて、ここの数字（150や165）は自由にいじって調整してな！
+    let intensity = "ジョグ（低強度）";
+    if (activity.has_heartrate && activity.average_heartrate) {
+      if (activity.average_heartrate >= 165) {
+        intensity = "無酸素（超高強度）";
+      } else if (activity.average_heartrate >= 150) {
+        intensity = "テンポ（高強度有酸素）";
+      }
+    } else {
+      intensity = "データなし";
+    }
+
     return {
       id: activity.id,
       date: activity.start_date_local.slice(0, 10),
       name: activity.name,
-      type: activity.type,
+      type: typeJa, // 日本語変換版
       distance: `${distanceKm.toFixed(2)}km`,
       time_sec: activity.moving_time,
-      pace: `${paceMin}:${paceSec}/km`
+      pace: `${paceMin}:${paceSec}/km`,
+      intensity: intensity,
+      avg_heartrate: activity.has_heartrate && activity.average_heartrate ? Math.round(activity.average_heartrate) : null,
+      max_heartrate: activity.has_heartrate && activity.max_heartrate ? Math.round(activity.max_heartrate) : null
     };
   });
 
   fs.writeFileSync('data.json', JSON.stringify(data, null, 2), 'utf-8');
 
-  console.log("成功！Stravaデータをdata.jsonに保存しました。");
+  console.log("成功！Stravaデータを強度付きでdata.jsonに保存しました。");
 }
 
 fetchStravaData().catch(error => {
