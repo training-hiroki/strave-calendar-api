@@ -59,14 +59,28 @@ async function fetchStravaData() {
     if (activity.type === "Run") typeJa = "ランニング";
     if (activity.type === "Walk") typeJa = "ウォーキング";
 
-    // 💓 平均心拍数からトレーニング強度を自動判定
-    // Ozoe君の心拍ゾーンに合わせて、ここの数字（150や165）は自由にいじって調整してな！
-    let intensity = "ジョグ（低強度）";
-    if (activity.has_heartrate && activity.average_heartrate) {
-      if (activity.average_heartrate >= 165) {
-        intensity = "無酸素（超高強度）";
-      } else if (activity.average_heartrate >= 150) {
+    // 🎯 Garminのトレーニング効果（Training Effect）による強度の自動判定
+    // 有酸素（aerobic_training_effect）と無酸素（anaerobic_training_effect）の数値を見て自動判定します
+    const aerobicTE = activity.aerobic_training_effect;
+    const anaerobicTE = activity.anaerobic_training_effect;
+    let intensity = "ベース（低強度有酸素）"; // デフォルト値
+
+    if (aerobicTE !== undefined && aerobicTE !== null) {
+      // 無酸素の数値が高ければスプリントや無酸素能力と判定
+      if (anaerobicTE && anaerobicTE >= 3.0) {
+        intensity = "スプリント / 無酸素能力";
+      } 
+      // 有酸素の数値による判定
+      else if (aerobicTE >= 5.0) {
+        intensity = "オーバーリーチ（過剰負荷）";
+      } else if (aerobicTE >= 4.0) {
+        intensity = "ハード（VO2 Max）";
+      } else if (aerobicTE >= 3.0) {
         intensity = "テンポ（高強度有酸素）";
+      } else if (aerobicTE >= 2.0) {
+        intensity = "ベース（低強度有酸素）";
+      } else {
+        intensity = "リカバリー";
       }
     } else {
       intensity = "データなし";
@@ -76,11 +90,11 @@ async function fetchStravaData() {
       id: activity.id,
       date: activity.start_date_local.slice(0, 10),
       name: activity.name,
-      type: typeJa, // 日本語変換版
+      type: typeJa,
       distance: `${distanceKm.toFixed(2)}km`,
       time_sec: activity.moving_time,
       pace: `${paceMin}:${paceSec}/km`,
-      intensity: intensity,
+      intensity: intensity, // 🔥 Garmin自動連動の強度判定
       avg_heartrate: activity.has_heartrate && activity.average_heartrate ? Math.round(activity.average_heartrate) : null,
       max_heartrate: activity.has_heartrate && activity.max_heartrate ? Math.round(activity.max_heartrate) : null
     };
@@ -88,7 +102,7 @@ async function fetchStravaData() {
 
   fs.writeFileSync('data.json', JSON.stringify(data, null, 2), 'utf-8');
 
-  console.log("成功！Stravaデータを強度付きでdata.jsonに保存しました。");
+  console.log("成功！Garmin自動判定の強度付きでdata.jsonに保存しました。");
 }
 
 fetchStravaData().catch(error => {
