@@ -1,5 +1,53 @@
 [
   {
+    "id": 18924117811,
+    "date": "2026-06-15",
+    "name": "Morning Ride",
+    "type": "Ride",
+    "distance": "7.79km",
+    "time_sec": 1346,
+    "pace": "2:53/km",
+    "intensity": "データなし",
+    "avg_heartrate": 124,
+    "max_heartrate": 142
+  },
+  {
+    "id": 18924117826,
+    "date": "2026-06-15",
+    "name": "Morning Run",
+    "type": "ランニング",
+    "distance": "1.53km",
+    "time_sec": 536,
+    "pace": "5:50/km",
+    "intensity": "データなし",
+    "avg_heartrate": 141,
+    "max_heartrate": 195
+  },
+  {
+    "id": 18924117822,
+    "date": "2026-06-15",
+    "name": "Morning Run",
+    "type": "ランニング",
+    "distance": "2.12km",
+    "time_sec": 606,
+    "pace": "4:46/km",
+    "intensity": "データなし",
+    "avg_heartrate": 150,
+    "max_heartrate": 172
+  },
+  {
+    "id": 18924117833,
+    "date": "2026-06-15",
+    "name": "Morning Ride",
+    "type": "Ride",
+    "distance": "9.77km",
+    "time_sec": 2070,
+    "pace": "3:32/km",
+    "intensity": "データなし",
+    "avg_heartrate": 97,
+    "max_heartrate": 136
+  },
+  {
     "id": 18917728987,
     "date": "2026-06-14",
     "name": "Night Run",
@@ -310,53 +358,5 @@
     "intensity": "データなし",
     "avg_heartrate": 122,
     "max_heartrate": 145
-  },
-  {
-    "id": 18641529646,
-    "date": "2026-05-23",
-    "name": "午後のランニング",
-    "type": "ランニング",
-    "distance": "1.65km",
-    "time_sec": 467,
-    "pace": "4:43/km",
-    "intensity": "データなし",
-    "avg_heartrate": 116,
-    "max_heartrate": 126
-  },
-  {
-    "id": 18641529531,
-    "date": "2026-05-23",
-    "name": "午後のランニング",
-    "type": "ランニング",
-    "distance": "0.00km",
-    "time_sec": 1,
-    "pace": "0:00/km",
-    "intensity": "データなし",
-    "avg_heartrate": 87,
-    "max_heartrate": 87
-  },
-  {
-    "id": 18607034359,
-    "date": "2026-05-22",
-    "name": "夕方のランニング",
-    "type": "ランニング",
-    "distance": "0.82km",
-    "time_sec": 384,
-    "pace": "7:46/km",
-    "intensity": "データなし",
-    "avg_heartrate": 95,
-    "max_heartrate": 106
-  },
-  {
-    "id": 18607027588,
-    "date": "2026-05-22",
-    "name": "夕方のランニング",
-    "type": "ランニング",
-    "distance": "0.42km",
-    "time_sec": 55,
-    "pace": "2:10/km",
-    "intensity": "データなし",
-    "avg_heartrate": 136,
-    "max_heartrate": 163
   }
 ]
