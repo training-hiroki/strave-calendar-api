@@ -1,5 +1,29 @@
 [
   {
+    "id": 18940642357,
+    "date": "2026-06-16",
+    "name": "Afternoon Run",
+    "type": "ランニング",
+    "distance": "10.06km",
+    "time_sec": 3109,
+    "pace": "5:09/km",
+    "intensity": "データなし",
+    "avg_heartrate": 150,
+    "max_heartrate": 160
+  },
+  {
+    "id": 18939964756,
+    "date": "2026-06-16",
+    "name": "Afternoon Run",
+    "type": "ランニング",
+    "distance": "2.06km",
+    "time_sec": 558,
+    "pace": "4:31/km",
+    "intensity": "データなし",
+    "avg_heartrate": 151,
+    "max_heartrate": 167
+  },
+  {
     "id": 18924117811,
     "date": "2026-06-15",
     "name": "Morning Ride",
@@ -334,29 +358,5 @@
     "intensity": "データなし",
     "avg_heartrate": 117,
     "max_heartrate": 157
-  },
-  {
-    "id": 18646238539,
-    "date": "2026-05-25",
-    "name": "夕方のランニング",
-    "type": "ランニング",
-    "distance": "2.11km",
-    "time_sec": 916,
-    "pace": "7:15/km",
-    "intensity": "データなし",
-    "avg_heartrate": 112,
-    "max_heartrate": 146
-  },
-  {
-    "id": 18646238378,
-    "date": "2026-05-25",
-    "name": "午後のランニング",
-    "type": "ランニング",
-    "distance": "0.50km",
-    "time_sec": 193,
-    "pace": "6:26/km",
-    "intensity": "データなし",
-    "avg_heartrate": 122,
-    "max_heartrate": 145
   }
 ]
