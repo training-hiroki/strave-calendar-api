@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require("fs");
 
 const CLIENT_ID = process.env.STRAVA_CLIENT_ID;
 const CLIENT_SECRET = process.env.STRAVA_CLIENT_SECRET;
@@ -7,9 +7,15 @@ const REFRESH_TOKEN = process.env.STRAVA_REFRESH_TOKEN;
 async function fetchStravaData() {
   console.log("Stravaアクセストークン取得中...");
 
+  if (!CLIENT_ID || !CLIENT_SECRET || !REFRESH_TOKEN) {
+    throw new Error("GitHub Secrets が不足しています。STRAVA_CLIENT_ID / STRAVA_CLIENT_SECRET / STRAVA_REFRESH_TOKEN を確認してください。");
+  }
+
   const tokenRes = await fetch("https://www.strava.com/oauth/token", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({
       client_id: CLIENT_ID,
       client_secret: CLIENT_SECRET,
@@ -20,7 +26,12 @@ async function fetchStravaData() {
 
   if (!tokenRes.ok) {
     const errorText = await tokenRes.text();
-    throw new Error("アクセストークン取得失敗: " + errorText);
+    throw new Error(
+      "アクセストークン取得失敗: status=" +
+      tokenRes.status +
+      " body=" +
+      errorText
+    );
   }
 
   const tokenData = await tokenRes.json();
@@ -39,7 +50,12 @@ async function fetchStravaData() {
 
   if (!activitiesRes.ok) {
     const errorText = await activitiesRes.text();
-    throw new Error("アクティビティ取得失敗: " + errorText);
+    throw new Error(
+      "アクティビティ取得失敗: status=" +
+      activitiesRes.status +
+      " body=" +
+      errorText
+    );
   }
 
   const activities = await activitiesRes.json();
@@ -52,57 +68,50 @@ async function fetchStravaData() {
     const paceMin = Math.floor(paceMinPerKm);
     const paceSec = Math.round((paceMinPerKm - paceMin) * 60)
       .toString()
-      .padStart(2, '0');
+      .padStart(2, "0");
 
-    // 🏃 種別を日本語に分かりやすく変換
     let typeJa = activity.type;
     if (activity.type === "Run") typeJa = "ランニング";
     if (activity.type === "Walk") typeJa = "ウォーキング";
-
-    // 🎯 Garminのトレーニング効果（Training Effect）による強度の自動判定
-    // 有酸素（aerobic_training_effect）と無酸素（anaerobic_training_effect）の数値を見て自動判定します
-    const aerobicTE = activity.aerobic_training_effect;
-    const anaerobicTE = activity.anaerobic_training_effect;
-    let intensity = "ベース（低強度有酸素）"; // デフォルト値
-
-    if (aerobicTE !== undefined && aerobicTE !== null) {
-      // 無酸素の数値が高ければスプリントや無酸素能力と判定
-      if (anaerobicTE && anaerobicTE >= 3.0) {
-        intensity = "スプリント / 無酸素能力";
-      } 
-      // 有酸素の数値による判定
-      else if (aerobicTE >= 5.0) {
-        intensity = "オーバーリーチ（過剰負荷）";
-      } else if (aerobicTE >= 4.0) {
-        intensity = "ハード（VO2 Max）";
-      } else if (aerobicTE >= 3.0) {
-        intensity = "テンポ（高強度有酸素）";
-      } else if (aerobicTE >= 2.0) {
-        intensity = "ベース（低強度有酸素）";
-      } else {
-        intensity = "リカバリー";
-      }
-    } else {
-      intensity = "データなし";
-    }
+    if (activity.type === "Ride") typeJa = "自転車";
 
     return {
       id: activity.id,
       date: activity.start_date_local.slice(0, 10),
       name: activity.name,
       type: typeJa,
-      distance: `${distanceKm.toFixed(2)}km`,
-      time_sec: activity.moving_time,
-      pace: `${paceMin}:${paceSec}/km`,
-      intensity: intensity, // 🔥 Garmin自動連動の強度判定
-      avg_heartrate: activity.has_heartrate && activity.average_heartrate ? Math.round(activity.average_heartrate) : null,
-      max_heartrate: activity.has_heartrate && activity.max_heartrate ? Math.round(activity.max_heartrate) : null
+      distance_km: Number(distanceKm.toFixed(2)),
+      moving_time_sec: activity.moving_time,
+      moving_time_text: formatTime(activity.moving_time),
+      pace: distanceKm > 0 ? `${paceMin}:${paceSec}/km` : null,
+      avg_heartrate:
+        activity.has_heartrate && activity.average_heartrate
+          ? Math.round(activity.average_heartrate)
+          : null,
+      max_heartrate:
+        activity.has_heartrate && activity.max_heartrate
+          ? Math.round(activity.max_heartrate)
+          : null
     };
   });
 
-  fs.writeFileSync('data.json', JSON.stringify(data, null, 2), 'utf-8');
+  fs.writeFileSync("data.json", JSON.stringify(data, null, 2), "utf-8");
 
-  console.log("成功！Garmin自動判定の強度付きでdata.jsonに保存しました。");
+  console.log("成功！評価なし版で data.json に保存しました。");
+}
+
+function formatTime(seconds) {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+
+  if (h > 0) {
+    return `${h}:${m.toString().padStart(2, "0")}:${s
+      .toString()
+      .padStart(2, "0")}`;
+  }
+
+  return `${m}:${s.toString().padStart(2, "0")}`;
 }
 
 fetchStravaData().catch(error => {
