@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "date": "2026-06-30",
+    "name": "Morning Run",
+    "type": "ランニング",
+    "distance_km": 12.5,
+    "moving_time_sec": 3300,
+    "moving_time_text": "55:00",
+    "pace": "4:24/km",
+    "avg_heartrate": 155,
+    "max_heartrate": 182
+  },
+  {
+    "id": 2,
+    "date": "2026-06-28",
+    "name": "Recovery Run",
+    "type": "ランニング",
+    "distance_km": 5.2,
+    "moving_time_sec": 1800,
+    "moving_time_text": "30:00",
+    "pace": "5:46/km",
+    "avg_heartrate": 138,
+    "max_heartrate": 150
+  }
+]
