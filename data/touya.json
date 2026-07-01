@@ -1,0 +1,14 @@
+[
+  {
+    "id": 19035790202,
+    "date": "2026-06-23",
+    "name": "Night Run",
+    "type": "ランニング",
+    "distance_km": 7.37,
+    "moving_time_sec": 2737,
+    "moving_time_text": "45:37",
+    "pace": "6:12/km",
+    "avg_heartrate": 137,
+    "max_heartrate": 161
+  }
+]
