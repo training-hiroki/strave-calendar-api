@@ -95,7 +95,7 @@ async function fetchStravaData() {
     };
   });
 
-  fs.writeFileSync("data.json", JSON.stringify(data, null, 2), "utf-8");
+  fs.writeFileSync("data/hiroki.json", JSON.stringify(data, null, 2), "utf-8");
 
   console.log("成功！評価なし版で data.json に保存しました。");
 }
