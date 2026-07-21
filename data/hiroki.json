@@ -1,5 +1,41 @@
 [
   {
+    "id": 19400788902,
+    "date": "2026-07-21",
+    "name": "Evening Run",
+    "type": "ランニング",
+    "distance_km": 0.52,
+    "moving_time_sec": 422,
+    "moving_time_text": "7:02",
+    "pace": "13:30/km",
+    "avg_heartrate": 140,
+    "max_heartrate": 145
+  },
+  {
+    "id": 19400564531,
+    "date": "2026-07-21",
+    "name": "Evening Run",
+    "type": "ランニング",
+    "distance_km": 6.26,
+    "moving_time_sec": 1595,
+    "moving_time_text": "26:35",
+    "pace": "4:15/km",
+    "avg_heartrate": 176,
+    "max_heartrate": 192
+  },
+  {
+    "id": 19400108049,
+    "date": "2026-07-21",
+    "name": "Evening Run",
+    "type": "ランニング",
+    "distance_km": 2.19,
+    "moving_time_sec": 611,
+    "moving_time_text": "10:11",
+    "pace": "4:39/km",
+    "avg_heartrate": 155,
+    "max_heartrate": 169
+  },
+  {
     "id": 19387226764,
     "date": "2026-07-20",
     "name": "夕方のランニング",
@@ -322,41 +358,5 @@
     "pace": "4:30/km",
     "avg_heartrate": 158,
     "max_heartrate": 168
-  },
-  {
-    "id": 19151126065,
-    "date": "2026-07-02",
-    "name": "Night Weight Training",
-    "type": "WeightTraining",
-    "distance_km": 0,
-    "moving_time_sec": 1488,
-    "moving_time_text": "24:48",
-    "pace": null,
-    "avg_heartrate": 83,
-    "max_heartrate": 129
-  },
-  {
-    "id": 19124568159,
-    "date": "2026-06-30",
-    "name": "Night Run",
-    "type": "ランニング",
-    "distance_km": 4.11,
-    "moving_time_sec": 1837,
-    "moving_time_text": "30:37",
-    "pace": "7:27/km",
-    "avg_heartrate": 120,
-    "max_heartrate": 145
-  },
-  {
-    "id": 19108555221,
-    "date": "2026-06-29",
-    "name": "Evening Run",
-    "type": "ランニング",
-    "distance_km": 2.01,
-    "moving_time_sec": 743,
-    "moving_time_text": "12:23",
-    "pace": "6:11/km",
-    "avg_heartrate": 150,
-    "max_heartrate": 159
   }
 ]
