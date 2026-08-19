@@ -40,7 +40,7 @@ async function fetchStravaData() {
   console.log("Stravaアクティビティ取得中...");
 
   const activitiesRes = await fetch(
-    "https://www.strava.com/api/v3/athlete/activities?per_page=1000000",
+    "https://www.strava.com/api/v3/athlete/activities?per_page=200",
     {
       headers: {
         Authorization: `Bearer ${accessToken}`
