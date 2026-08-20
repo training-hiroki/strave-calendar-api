@@ -1,5 +1,41 @@
 [
   {
+    "id": 19822359210,
+    "date": "2026-08-20",
+    "name": "Evening Weight Training",
+    "type": "WeightTraining",
+    "distance_km": 0,
+    "moving_time_sec": 415,
+    "moving_time_text": "6:55",
+    "pace": null,
+    "avg_heartrate": 117,
+    "max_heartrate": 143
+  },
+  {
+    "id": 19821893066,
+    "date": "2026-08-20",
+    "name": "Evening Run",
+    "type": "ランニング",
+    "distance_km": 3.25,
+    "moving_time_sec": 906,
+    "moving_time_text": "15:06",
+    "pace": "4:39/km",
+    "avg_heartrate": 173,
+    "max_heartrate": 194
+  },
+  {
+    "id": 19821893004,
+    "date": "2026-08-20",
+    "name": "Evening Run",
+    "type": "ランニング",
+    "distance_km": 2.19,
+    "moving_time_sec": 661,
+    "moving_time_text": "11:01",
+    "pace": "5:02/km",
+    "avg_heartrate": 150,
+    "max_heartrate": 163
+  },
+  {
     "id": 19800930818,
     "date": "2026-08-19",
     "name": "Morning Run",
