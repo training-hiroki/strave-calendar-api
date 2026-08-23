@@ -1,5 +1,17 @@
 [
   {
+    "id": 19871401503,
+    "date": "2026-08-24",
+    "name": "Morning Run",
+    "type": "ランニング",
+    "distance_km": 10.01,
+    "moving_time_sec": 3233,
+    "moving_time_text": "53:53",
+    "pace": "5:23/km",
+    "avg_heartrate": 148,
+    "max_heartrate": 170
+  },
+  {
     "id": 19849594987,
     "date": "2026-08-22",
     "name": "Evening Run",
