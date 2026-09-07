@@ -1,5 +1,41 @@
 [
   {
+    "id": 20068515921,
+    "date": "2026-09-07",
+    "name": "Morning Run",
+    "type": "ランニング",
+    "distance_km": 1.42,
+    "moving_time_sec": 577,
+    "moving_time_text": "9:37",
+    "pace": "6:45/km",
+    "avg_heartrate": 119,
+    "max_heartrate": 159
+  },
+  {
+    "id": 20068515898,
+    "date": "2026-09-07",
+    "name": "Morning Run",
+    "type": "ランニング",
+    "distance_km": 0.24,
+    "moving_time_sec": 57,
+    "moving_time_text": "0:57",
+    "pace": "3:59/km",
+    "avg_heartrate": 127,
+    "max_heartrate": 153
+  },
+  {
+    "id": 20068281835,
+    "date": "2026-09-07",
+    "name": "Morning Run",
+    "type": "ランニング",
+    "distance_km": 1.8,
+    "moving_time_sec": 796,
+    "moving_time_text": "13:16",
+    "pace": "7:22/km",
+    "avg_heartrate": 120,
+    "max_heartrate": 159
+  },
+  {
     "id": 20067360529,
     "date": "2026-09-07",
     "name": "Morning Run",
@@ -2362,41 +2398,5 @@
     "pace": "6:60/km",
     "avg_heartrate": 134,
     "max_heartrate": 144
-  },
-  {
-    "id": 18424143634,
-    "date": "2026-05-08",
-    "name": "夕方のランニング",
-    "type": "ランニング",
-    "distance_km": 1.11,
-    "moving_time_sec": 492,
-    "moving_time_text": "8:12",
-    "pace": "7:23/km",
-    "avg_heartrate": 136,
-    "max_heartrate": 147
-  },
-  {
-    "id": 18424143840,
-    "date": "2026-05-08",
-    "name": "夕方のランニング",
-    "type": "ランニング",
-    "distance_km": 0.14,
-    "moving_time_sec": 22,
-    "moving_time_text": "0:22",
-    "pace": "2:42/km",
-    "avg_heartrate": 131,
-    "max_heartrate": 138
-  },
-  {
-    "id": 18424143588,
-    "date": "2026-05-08",
-    "name": "夕方のランニング",
-    "type": "ランニング",
-    "distance_km": 0.53,
-    "moving_time_sec": 102,
-    "moving_time_text": "1:42",
-    "pace": "3:13/km",
-    "avg_heartrate": 169,
-    "max_heartrate": 175
   }
 ]
