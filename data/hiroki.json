@@ -1,5 +1,17 @@
 [
   {
+    "id": 20193549524,
+    "date": "2026-09-16",
+    "name": "Morning Run",
+    "type": "ランニング",
+    "distance_km": 2.01,
+    "moving_time_sec": 551,
+    "moving_time_text": "9:11",
+    "pace": "4:34/km",
+    "avg_heartrate": 150,
+    "max_heartrate": 167
+  },
+  {
     "id": 20167667144,
     "date": "2026-09-14",
     "name": "Afternoon Run",
@@ -2386,17 +2398,5 @@
     "pace": "6:52/km",
     "avg_heartrate": 111,
     "max_heartrate": 133
-  },
-  {
-    "id": 18530796796,
-    "date": "2026-05-16",
-    "name": "夜のランニング",
-    "type": "ランニング",
-    "distance_km": 6.17,
-    "moving_time_sec": 1894,
-    "moving_time_text": "31:34",
-    "pace": "5:07/km",
-    "avg_heartrate": 141,
-    "max_heartrate": 158
   }
 ]
