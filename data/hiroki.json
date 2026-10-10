@@ -1,5 +1,17 @@
 [
   {
+    "id": 20523329669,
+    "date": "2026-10-10",
+    "name": "Afternoon Run",
+    "type": "ランニング",
+    "distance_km": 2.02,
+    "moving_time_sec": 731,
+    "moving_time_text": "12:11",
+    "pace": "6:01/km",
+    "avg_heartrate": 148,
+    "max_heartrate": 157
+  },
+  {
     "id": 20522451030,
     "date": "2026-10-10",
     "name": "Lunch Run",
@@ -2386,17 +2398,5 @@
     "pace": "4:31/km",
     "avg_heartrate": 151,
     "max_heartrate": 167
-  },
-  {
-    "id": 18924117811,
-    "date": "2026-06-15",
-    "name": "Morning Ride",
-    "type": "自転車",
-    "distance_km": 7.79,
-    "moving_time_sec": 1346,
-    "moving_time_text": "22:26",
-    "pace": "2:53/km",
-    "avg_heartrate": 124,
-    "max_heartrate": 142
   }
 ]
