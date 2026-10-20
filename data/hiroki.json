@@ -1,5 +1,17 @@
 [
   {
+    "id": 20661904226,
+    "date": "2026-10-20",
+    "name": "Night Run",
+    "type": "ランニング",
+    "distance_km": 8.74,
+    "moving_time_sec": 2798,
+    "moving_time_text": "46:38",
+    "pace": "5:20/km",
+    "avg_heartrate": 148,
+    "max_heartrate": 162
+  },
+  {
     "id": 20645512528,
     "date": "2026-10-19",
     "name": "Evening Run",
@@ -2386,17 +2398,5 @@
     "pace": "4:30/km",
     "avg_heartrate": 158,
     "max_heartrate": 168
-  },
-  {
-    "id": 19151126065,
-    "date": "2026-07-02",
-    "name": "Night Weight Training",
-    "type": "WeightTraining",
-    "distance_km": 0,
-    "moving_time_sec": 1488,
-    "moving_time_text": "24:48",
-    "pace": null,
-    "avg_heartrate": 83,
-    "max_heartrate": 129
   }
 ]
