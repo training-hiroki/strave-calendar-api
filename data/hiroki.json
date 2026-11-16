@@ -1,5 +1,17 @@
 [
   {
+    "id": 21005538806,
+    "date": "2026-11-16",
+    "name": "Afternoon Weight Training",
+    "type": "WeightTraining",
+    "distance_km": 0,
+    "moving_time_sec": 1225,
+    "moving_time_text": "20:25",
+    "pace": null,
+    "avg_heartrate": 97,
+    "max_heartrate": 129
+  },
+  {
     "id": 20978968684,
     "date": "2026-11-14",
     "name": "Lunch Run",
@@ -2386,17 +2398,5 @@
     "pace": "6:42/km",
     "avg_heartrate": 138,
     "max_heartrate": 157
-  },
-  {
-    "id": 19438048122,
-    "date": "2026-07-24",
-    "name": "Morning Run",
-    "type": "ランニング",
-    "distance_km": 6.23,
-    "moving_time_sec": 2415,
-    "moving_time_text": "40:15",
-    "pace": "6:28/km",
-    "avg_heartrate": 140,
-    "max_heartrate": 152
   }
 ]
